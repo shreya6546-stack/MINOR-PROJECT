@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyPulse</title>
+    <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- External CSS -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+    <!-- Navbar -->
+     <nav class="navbar">
+        <div class="logo">
+            <div class="logo-icon">📘</div>
+            StudyPulse
+        </div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">How It Works</a>
+        </div>
+        <div class="nav-actions">
+            <a href="#">Log in</a>
+            <button class="btn-primary">Get Started</button>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+  <section class="hero">
+    <div class="badge">✨ Smart Learning Analytics</div>
+
+    <h1>Know Your Weak Topics.</h1>
+
+    <div class="gradient-bar"></div>
+
+    <p>
+      Upload your test scores, visualize your performance gaps,
+      and get AI-powered study recommendations tailored just for you.
+    </p>
+    <div class="hero-buttons">
+      <button class="btn-large-primary" id="startBtn">
+        Start Analyzing Free →
+      </button>
+
+      <button class="btn-large-outline" id="loginBtn">
+        I Have an Account
+      </button>
+    </div>
+  </section>
+  <!-- Stats Section -->
+   <section class="stats-section">
+    <div class="stats-container">
+        <div class="stat-card strong">
+        <div class="stat-header">
+          <span class="dot green"></span>
+          <span>Strong Topics</span>
+        </div>
+        <h2 id="strongCount">12</h2>
+        <p>Keep up the great work!</p>
+      </div>
+      <div class="stat-card attention">
+        <div class="stat-header">
+          <span class="dot orange"></span>
+          <span>Needs Attention</span>
+        </div>
+        <h2 id="attentionCount">5</h2>
+        <p>Room for improvement</p>
+      </div>
+      <div class="stat-card weak">
+        <div class="stat-header">
+          <span class="dot red"></span>
+          <span>Weak Topics</span>
+        </div>
+        <h2 id="weakCount">3</h2>
+        <p>Focus on these first</p>
+      </div>
+
+    </div>
+   </section>
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
+</html>
