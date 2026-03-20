@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Study Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css"/>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2 class="logo">StudyPulse</h2>
+    <ul>
+      <li class="active">Dashboard</li>
+      <li>Weak Topics</li>
+      <li>Reports</li>
+      <li>Study Plan</li>
+      <li>Quiz</li>
+    </ul>
+    <button class="add-btn">+ Add Scores</button>
+
+    <div class="bottom">
+      <p>Settings</p>
+      <p>Log out</p>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main">
+
+    <h1>Dashboard</h1>
+    <p class="subtitle">Welcome back! Here's an overview of your academic performance.</p>
+
+    <!-- Cards -->
+    <div class="cards">
+      <div class="card">
+        <h3>Overall Score</h3>
+        <h2 id="overallScore">75%</h2>
+        <p class="green">+5% from last month</p>
+      </div>
+
+      <div class="card">
+        <h3>Strong Topics</h3>
+        <h2>12</h2>
+        <div class="progress"><span style="width:48%"></span></div>
+      </div>
+
+      <div class="card">
+        <h3>Weak Topics</h3>
+        <h2>5</h2>
+        <div class="progress red"><span style="width:20%"></span></div>
+      </div>
+
+      <div class="card">
+        <h3>Subjects</h3>
+        <h2>5</h2>
+        <p>Tracking 63 topics</p>
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="charts">
+
+      <!-- Bar Chart -->
+      <div class="chart-box">
+        <h3>Subject Performance</h3>
+        <canvas id="barChart"></canvas>
+      </div>
+
+      <!-- Doughnut Chart -->
+      <div class="chart-box">
+        <h3>Topic Distribution</h3>
+        <canvas id="pieChart"></canvas>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+
+<script src="dashboard.js"></script>
+</body>
+</html>

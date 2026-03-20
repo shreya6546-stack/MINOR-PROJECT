@@ -269,3 +269,167 @@ body {
     flex-direction: column;
   }
 }
+
+
+/* Hero */
+.hero2 {
+  text-align: center;
+  margin: 80px 20px 50px;
+}
+
+.hero2 h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.hero2 p {
+  color: #6b7280;
+  max-width: 600px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+/* Features */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  padding: 40px 60px;
+}
+
+/* Card */
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.icon {
+  font-size: 28px;
+  background: #e0f2fe;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+/* How It Works */
+.how-it-works {
+  text-align: center;
+  padding: 70px 20px;
+  background: #ffffff;
+}
+
+.how-it-works h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 50px;
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+/* line between steps */
+.steps::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: #d1d5db;
+  z-index: 0;
+}
+
+.step {
+  max-width: 220px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  background: #06b6d4;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  font-weight: bold;
+}
+
+.step h4 {
+  margin-bottom: 10px;
+}
+
+.step p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* CTA Section */
+.cta {
+  text-align: center;
+  padding: 70px 20px;
+  background: linear-gradient(135deg, #14b8a6, #0ea5e9);
+  color: white;
+}
+
+.cta h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.cta p {
+  margin-bottom: 25px;
+  color: #e0f2fe;
+}
+
+.cta-btn {
+  background: #e5e7eb;
+  color: #111827;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.cta-btn:hover {
+  background: white;
+}
