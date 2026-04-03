@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StudyPulse — Create Account</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal-dark:   #0d7a6e;
+      --teal-mid:    #17a899;
+      --teal-light:  #3ecfbf;
+      --cream:       #f5f3ee;
+      --white:       #ffffff;
+      --ink:         #1a1a1a;
+      --muted:       #7a7a7a;
+      --border:      #e2dfd8;
+      --error:       #d64040;
+      --shadow:      0 8px 40px rgba(0,0,0,.10);
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    /* ── LAYOUT ── */
+    .page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* ── LEFT PANEL ── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(145deg, #0a6b60 0%, #17a899 55%, #3ecfbf 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 48px;
+      color: #fff;
+    }
+
+    /* Decorative blobs */
+    .hero::before,
+    .hero::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      opacity: .18;
+    }
+    .hero::before {
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, #fff 0%, transparent 70%);
+      top: -140px; left: -140px;
+    }
+    .hero::after {
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, #fff 0%, transparent 70%);
+      bottom: -100px; right: -100px;
+    }
+
+    /* floating decorative circles */
+    .blob { position: absolute; border-radius: 50%; opacity: .12; }
+    .blob-1 { width:180px;height:180px; background:#fff; bottom:18%; left:10%; animation: float 7s ease-in-out infinite; }
+    .blob-2 { width:80px; height:80px;  background:#fff; top:22%; right:14%; animation: float 5s ease-in-out infinite reverse; }
+    .blob-3 { width:50px; height:50px;  background:#fff; bottom:35%; right:28%; animation: float 9s ease-in-out infinite; }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-18px); }
+    }
+
+    .hero-content { position: relative; z-index: 1; text-align: center; max-width: 400px; }
+
+    .hero-icon {
+      width: 64px; height: 64px;
+      background: rgba(255,255,255,.2);
+      backdrop-filter: blur(8px);
+      border-radius: 18px;
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-bottom: 28px;
+      border: 1px solid rgba(255,255,255,.3);
+      animation: fadeUp .8s ease both;
+    }
+    .hero-icon svg { width:32px; height:32px; }
+
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      animation: fadeUp .8s .1s ease both;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      line-height: 1.7;
+      opacity: .88;
+      max-width: 340px;
+      animation: fadeUp .8s .2s ease both;
+    }
+
+    .hero-stats {
+      display: flex; gap: 32px; margin-top: 48px;
+      animation: fadeUp .8s .3s ease both;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Fraunces', serif;
+      font-size: 1.7rem; font-weight: 700; display: block;
+    }
+    .stat-label { font-size: .75rem; opacity: .75; text-transform: uppercase; letter-spacing: .08em; }
+
+    /* ── RIGHT PANEL ── */
+    .form-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 48px;
+      background: var(--cream);
+      animation: fadeUp .8s .1s ease both;
+    }
+
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 40px;
+      align-self: flex-start;
+    }
+    .brand-logo {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--teal-dark), var(--teal-light));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .brand-logo svg { width: 20px; height: 20px; }
+    .brand-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.25rem; font-weight: 700; color: var(--ink);
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 40px 36px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .card-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.75rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 6px;
+    }
+    .card-sub {
+      font-size: .9rem; color: var(--muted); margin-bottom: 30px;
+    }
+
+    /* ── FORM ── */
+    .field { margin-bottom: 20px; }
+    label {
+      display: block;
+      font-size: .82rem; font-weight: 600;
+      color: var(--ink); margin-bottom: 7px;
+      letter-spacing: .02em;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+    .input-wrap svg {
+      position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+      width: 16px; height: 16px; color: var(--muted); pointer-events: none;
+      transition: color .2s;
+    }
+    .input-wrap:focus-within svg { color: var(--teal-mid); }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 11px 14px 11px 40px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .95rem;
+      color: var(--ink);
+      background: #faf9f6;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+    }
+    input::placeholder { color: #b0aba3; }
+    input:focus {
+      border-color: var(--teal-mid);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(23,168,153,.12);
+    }
+    input.error { border-color: var(--error); }
+    input.error:focus { box-shadow: 0 0 0 3px rgba(214,64,64,.1); }
+
+    .hint {
+      font-size: .78rem; color: var(--muted); margin-top: 5px;
+    }
+    .hint.err { color: var(--error); }
+
+    /* password toggle */
+    .pwd-toggle {
+      position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+      cursor: pointer; color: var(--muted); background: none; border: none; padding: 4px;
+      display: flex; align-items: center;
+      transition: color .2s;
+    }
+    .pwd-toggle:hover { color: var(--teal-mid); }
+    .pwd-toggle svg { width: 18px; height: 18px; }
+
+    /* strength bar */
+    .strength-bar {
+      display: flex; gap: 4px; margin-top: 8px; opacity: 0;
+      transition: opacity .3s;
+    }
+    .strength-bar.visible { opacity: 1; }
+    .seg {
+      flex: 1; height: 3px; border-radius: 99px;
+      background: var(--border); transition: background .3s;
+    }
+    .seg.weak   { background: #e0694a; }
+    .seg.medium { background: #e8a838; }
+    .seg.strong { background: var(--teal-mid); }
+
+    /* submit */
+    .btn-submit {
+      width: 100%; padding: 13px;
+      background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal-mid) 100%);
+      color: #fff;
+      border: none; border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem; font-weight: 600;
+      cursor: pointer; margin-top: 8px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      position: relative; overflow: hidden;
+      transition: transform .15s, box-shadow .15s, opacity .2s;
+      box-shadow: 0 4px 16px rgba(13,122,110,.3);
+    }
+    .btn-submit:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 22px rgba(13,122,110,.38);
+    }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit.loading { opacity: .8; pointer-events: none; }
+    .btn-submit .spinner {
+      width: 18px; height: 18px;
+      border: 2px solid rgba(255,255,255,.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      display: none;
+    }
+    .btn-submit.loading .spinner { display: block; }
+    .btn-submit.loading .btn-text { display: none; }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .divider {
+      text-align: center; font-size: .82rem; color: var(--muted); margin: 20px 0;
+      position: relative;
+    }
+    .divider::before, .divider::after {
+      content: ''; position: absolute; top: 50%; width: 40%; height: 1px; background: var(--border);
+    }
+    .divider::before { left: 0; } .divider::after { right: 0; }
+
+    .login-link {
+      text-align: center; font-size: .88rem; color: var(--muted);
+    }
+    .login-link a { color: var(--teal-mid); font-weight: 600; text-decoration: none; }
+    .login-link a:hover { text-decoration: underline; }
+
+    /* success overlay */
+    .success-overlay {
+      display: none;
+      flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 10px;
+    }
+    .success-overlay.show { display: flex; }
+    .success-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal-dark), var(--teal-light));
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+      animation: pop .5s cubic-bezier(.34,1.56,.64,1);
+    }
+    @keyframes pop { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .success-icon svg { width: 30px; height: 30px; color: #fff; }
+    .success-overlay h2 {
+      font-family: 'Fraunces', serif; font-size: 1.5rem; margin-bottom: 8px;
+    }
+    .success-overlay p { color: var(--muted); font-size: .92rem; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .page { grid-template-columns: 1fr; }
+      .hero {
+        padding: 48px 32px 56px;
+        min-height: 280px;
+      }
+      .hero h1 { font-size: 1.9rem; }
+      .hero-stats { gap: 24px; }
+      .form-side { padding: 40px 24px 56px; }
+      .brand { align-self: center; }
+      .card { padding: 32px 24px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 36px 20px 44px; min-height: 240px; }
+      .hero h1 { font-size: 1.6rem; }
+      .hero p { font-size: .88rem; }
+      .hero-stats { flex-wrap: wrap; justify-content: center; gap: 20px; }
+      .form-side { padding: 32px 16px 48px; }
+      .card { padding: 28px 18px; border-radius: 16px; }
+      .card-title { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ── LEFT HERO ── -->
+  <section class="hero" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="hero-content">
+      <div class="hero-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+        </svg>
+      </div>
+      <h1>Start Your Journey</h1>
+      <p>Join thousands of students who are using data-driven insights to improve their academic performance.</p>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">50K+</span><span class="stat-label">Students</span></div>
+        <div class="stat"><span class="stat-num">94%</span><span class="stat-label">Improved</span></div>
+        <div class="stat"><span class="stat-num">Free</span><span class="stat-label">Always</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RIGHT FORM SIDE ── -->
+  <section class="form-side">
+
+    <div class="brand">
+      <div class="brand-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+        </svg>
+      </div>
+      <span class="brand-name">StudyPulse</span>
+    </div>
+
+    <div class="card">
+
+      <!-- FORM VIEW -->
+      <div id="formView">
+        <h2 class="card-title">Create your account</h2>
+        <p class="card-sub">Start analyzing your performance for free</p>
+
+        <form id="signupForm" novalidate>
+
+          <div class="field">
+            <label for="fullName">Full Name</label>
+            <div class="input-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <input type="text" id="fullName" placeholder="John Doe" autocomplete="name"/>
+            </div>
+            <div class="hint err" id="nameErr" role="alert"></div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <div class="input-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <input type="email" id="email" placeholder="you@university.edu" autocomplete="email"/>
+            </div>
+            <div class="hint err" id="emailErr" role="alert"></div>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="input-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <input type="password" id="password" placeholder="••••••••" autocomplete="new-password"/>
+              <button type="button" class="pwd-toggle" id="pwdToggle" aria-label="Toggle password visibility">
+                <svg id="eyeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <div class="strength-bar" id="strengthBar">
+              <div class="seg" id="s1"></div>
+              <div class="seg" id="s2"></div>
+              <div class="seg" id="s3"></div>
+              <div class="seg" id="s4"></div>
+            </div>
+            <div class="hint" id="pwdHint">Must be at least 8 characters</div>
+            <div class="hint err" id="pwdErr" role="alert"></div>
+          </div>
+
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <span class="btn-text">Create Account &nbsp;→</span>
+            <div class="spinner"></div>
+          </button>
+
+        </form>
+
+        <div class="login-link" style="margin-top:20px">
+          Already have an account? <a href="#">Log in</a>
+        </div>
+      </div>
+
+      <!-- SUCCESS VIEW -->
+      <div class="success-overlay" id="successView">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h2>Account Created!</h2>
+        <p>Welcome aboard. Redirecting you to your dashboard…</p>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<script>
+  // ── Password visibility toggle ──
+  const pwdInput   = document.getElementById('password');
+  const pwdToggle  = document.getElementById('pwdToggle');
+  const eyeIcon    = document.getElementById('eyeIcon');
+
+  const eyeOpen  = `<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>`;
+  const eyeClosed = `<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/>`;
+
+  pwdToggle.addEventListener('click', () => {
+    const show = pwdInput.type === 'password';
+    pwdInput.type = show ? 'text' : 'password';
+    eyeIcon.innerHTML = show ? eyeClosed : eyeOpen;
+  });
+
+  // ── Password strength ──
+  const strengthBar = document.getElementById('strengthBar');
+  const segs = [document.getElementById('s1'), document.getElementById('s2'),
+                document.getElementById('s3'), document.getElementById('s4')];
+
+  function getStrength(val) {
+    let score = 0;
+    if (val.length >= 8)  score++;
+    if (val.length >= 12) score++;
+    if (/[A-Z]/.test(val) && /[a-z]/.test(val)) score++;
+    if (/\d/.test(val) || /[^A-Za-z0-9]/.test(val)) score++;
+    return score;
+  }
+
+  pwdInput.addEventListener('input', () => {
+    const val = pwdInput.value;
+    strengthBar.classList.toggle('visible', val.length > 0);
+    const score = getStrength(val);
+    const cls = score <= 1 ? 'weak' : score <= 2 ? 'medium' : 'strong';
+    segs.forEach((s, i) => {
+      s.className = 'seg';
+      if (i < score) s.classList.add(cls);
+    });
+  });
+
+  // ── Validation helpers ──
+  function showErr(inputId, errId, msg) {
+    document.getElementById(inputId).classList.add('error');
+    document.getElementById(errId).textContent = msg;
+  }
+  function clearErr(inputId, errId) {
+    document.getElementById(inputId).classList.remove('error');
+    document.getElementById(errId).textContent = '';
+  }
+
+  // live clear on input
+  document.getElementById('fullName').addEventListener('input',  () => clearErr('fullName','nameErr'));
+  document.getElementById('email').addEventListener('input',     () => clearErr('email','emailErr'));
+  document.getElementById('password').addEventListener('input',  () => clearErr('password','pwdErr'));
+
+  // ── Form submit ──
+  document.getElementById('signupForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name  = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const pwd   = document.getElementById('password').value;
+    let valid = true;
+
+    clearErr('fullName','nameErr'); clearErr('email','emailErr'); clearErr('password','pwdErr');
+
+    if (!name) { showErr('fullName','nameErr','Please enter your full name.'); valid = false; }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showErr('email','emailErr','Please enter a valid email address.'); valid = false;
+    }
+    if (pwd.length < 8) { showErr('password','pwdErr','Password must be at least 8 characters.'); valid = false; }
+
+    if (!valid) return;
+
+    const btn = document.getElementById('submitBtn');
+    btn.classList.add('loading');
+
+    // Simulate async request
+    await new Promise(r => setTimeout(r, 1600));
+
+    btn.classList.remove('loading');
+    document.getElementById('formView').style.display  = 'none';
+    document.getElementById('successView').classList.add('show');
+  });
+</script>
+</body>
+</html>

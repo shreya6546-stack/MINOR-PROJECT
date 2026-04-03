@@ -1,56 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - StudyPulse</title>
-  <link rel="stylesheet" href="login.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyPulse Login</title>
+    <link rel="stylesheet" href="./login.css"/>
+    </head>
 <body>
-
-<div class="container">
-
-  <!-- LEFT SIDE -->
-  <div class="left">
-    <div class="logo">📘 <span>StudyPulse</span></div>
-
-    <div class="login-card">
-      <h2>Welcome back</h2>
-      <p class="subtitle">Log in to access your learning analytics</p>
-
-      <label>Email</label>
-      <div class="input-box">
-        <span>📧</span>
-        <input type="email" placeholder="you@university.edu" id="email">
-      </div>
-
-      <label>Password</label>
-      <div class="input-box">
-        <span>🔒</span>
-        <input type="password" placeholder="••••••••" id="password">
-      </div>
-
-      <a href="#" class="forgot">Forgot password?</a>
-
-      <button id="loginBtn">Log in →</button>
-
-      <p class="signup">
-        Don't have an account? <a href="#">Sign up</a>
-      </p>
+    <div class="container">
+        <div class="login-form">
+            <div class="logo">SP</div>
+            <h1>Welcome back</h1>
+            <p class="subtitle">Login to your learning analytics</p>
+            <form>
+                <div class="form-group">
+                    <label for="email">Email @youruni.edu</label>
+                    <input type="email" id="email" placeholder="yourname@youruni.edu" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                <div class="forgot-password">
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button type="submit" class="login-btn">Log in</button>
+                <div class="signup-link">
+                    Don't have an account? <a href="#">Sign up</a>
+                </div>
+            </form>
+        </div>
+        <div class="right-panel">
+            <h2>Track Your Progress</h2>
+            <p>Personalized analytics to improve your performance and get actionable insights.</p>
+        </div>
     </div>
-  </div>
-
-  <!-- RIGHT SIDE -->
-  <div class="right">
-    <h1>Track Your Progress</h1>
-    <p>
-      Access detailed analytics on your academic performance and get
-      personalized recommendations to improve your weak areas.
-    </p>
-  </div>
-
-</div>
-
-<script src="login.js"></script>
+     <script src="./script.js"></script>
 </body>
 </html>
